@@ -44,14 +44,15 @@ cli
 	.argument('<file>', 'The Vpf file to search')
 	.argument('<bodyText>', 'The text to look for in the question body text or header')
 	.action(({args, options, logger}) => {
+		
 		fs.readFile(args.file, 'utf8', function (err,data) {
 		if (err) {
 			return logger.warn(err);
 		}
-  
+	  
 		parser = new GiftParser();
 		parser.parse(data);
-		
+			
 		if(parser.errorCount === 0){
 			var textToSearch = new RegExp(args.bodyText);
 
@@ -66,11 +67,17 @@ cli
 					}
 				}
 			}
-			logger.info("%s", JSON.stringify(filteredElements, null, 2));
+			if (filteredElements.length === 0) {
+            	logger.info("Aucune question trouvée");
+	        } else {
+	            logger.info("%s", JSON.stringify(filteredElements, null, 2));
+	        }
 		}else{
 			logger.info("The .gift file contains error".red);
 		}
 		});
+		
+
 	})
 
 
