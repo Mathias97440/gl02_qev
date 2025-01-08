@@ -62,6 +62,7 @@ Exam.prototype.start = async function () {
 	// Function to ask a single question
 	const askQuestion = async (question, index) => {
 		console.log(`\nQuestion ${index + 1}: ${question.header}`);
+		numQuestions++; // Increment total number of questions
 		let isMatchedQuestion = false;
 		let matchedAnswers = [];
 		let matchedQuestions = [];
