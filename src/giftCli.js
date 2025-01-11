@@ -276,7 +276,7 @@ END:VCARD`;
     //start  Start an exam   EF05
 	.command('startSimulation', 'Start an exam')
 	.action(({args, options, logger}) => {
-		if (exam.isValid) {
+		if (exam.isValid()) {
 			exam.start();
 		}
 	})
