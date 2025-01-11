@@ -181,19 +181,12 @@ cli
 		parser.parse(data);
 		
 		if(parser.errorCount === 0){
-			var textToSearch = new RegExp(args.headerText);
+			const textToSearch = new RegExp(args.headerText, 'i');
 
-			var filteredElements = []
+            const filteredElements = parser.parsedElement
+                .flatMap(element => element.questions) // Combine all question in an array
+                .filter(question => {return textToSearch.test(question.header) || question.body.some(line => textToSearch.test(line));}); // Check if text is in questions header and body
 
-			for (let i = 0; i < parser.parsedElement.length; i++) {		//iterate over parsedElement , on file
-				for (let k = 0; k < parser.parsedElement[i].questions.length; k++) {	//iterate over questions of the file
-					var question = parser.parsedElement[i].questions[k]
-
-					if (question.header.match(textToSearch, 'i')) {
-						filteredElements.push(question)
-					}
-				}
-			}
 			//check if lenght of filtered element ==1 to confirm selection
 			switch (filteredElements.length) {
 				case 0:
