@@ -57,7 +57,7 @@ cli
 		
 		readFileAndParse(args.file, (err, parser) => {
 			if (err) {
-				return logger.warn(err);
+				return logger.warn("Erreur de connexion à la banque de questions");
 			}
 			
 		if(parser.errorCount === 0){
