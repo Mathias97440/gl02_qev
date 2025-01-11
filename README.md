@@ -3,7 +3,7 @@
 
 
 ## Installation
-
+téléchargez le zip du projet ou clonez le repository depuis votre instance locale puis effectuez la commande : 
 $ npm install
 
 ## Utilisation 
@@ -111,3 +111,10 @@ node src/giftCli.js append SujetB_data\U7-p79-Review-3.gift 3.3
 node src/giftCli.js append SujetB_data\U2-p22-Gra-Ing_or_inf.gift 6.4b
 node src/giftCli.js append SujetB_data\EM-U5-p34-Voc.gift 1.5
 node src/giftCli.js startSimulation
+
+## Licence ##
+Ce projet repose sur la licence AFL-3.0, veuillez trouver plus d'informations sur cette licence et vos droit sur ce projet à cette adresse suivante : https://opensource.org/license/afl-3-0-php
+
+## Auteurs ##
+Le projet initial a été développé par : seasidedotwav, newedgar et ZHENG-Qi625
+Le fork a été développé par : guillaumerzn, supermut59000, Mathias97440 et AntoMldr
