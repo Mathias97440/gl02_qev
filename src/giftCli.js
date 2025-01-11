@@ -137,6 +137,12 @@ cli
 		exam.create()
 	})
 
+	// delete the actual exam  EF02
+	.command('delete', 'Delete the actual exam')
+	.action(({args, options, logger}) => {
+		exam.delete()
+	})
+
 	// remove last question exam  EF02
 	.command('remove', 'Remove the last question of the exam')
 	.action(({args, options, logger}) => {

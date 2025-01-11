@@ -29,7 +29,7 @@ Exam.prototype.create = function () {
 	this.questions = []
 	fs.writeFileSync(FILE_PATH, JSON.stringify(this.questions, null, 2));
 	console.log("Exam succesfully created".green)
-}
+};
 
 Exam.prototype.start = async function () {
 	let points = 0; // Initialiser les points à 0
@@ -157,6 +157,12 @@ Exam.prototype.removeLast = function () {
 		return
 	}
 }
+
+Exam.prototype.delete = function () {
+    this.questions = [];
+    fs.writeFileSync(FILE_PATH, JSON.stringify(this.questions, null, 2));
+    console.log("Exam successfully deleted".green);
+};
 
 // verify if object already in exam
 Exam.prototype.isAlreadyInExam = function (question) {
